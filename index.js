@@ -1,18 +1,11 @@
 const express = require('express');
 const app = express();
 const user = require('./routes/user-route');
-var path = require('path');
 const { getOriginal } = require('./models/urls-model');
 const morgan = require('morgan');
 const url = require('./routes/urls-route');
 const mongoose = require('mongoose');
-const MONGOURI = process.env.MONGOURI;
-
-// set static folder
-app.use(express.static(__dirname + '/client/dist/client'));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname));
-});
+const MONGOURI = process.env.MONGOURI || 'mongodb://localhost:27017/shrikifyDB';
 
 mongoose
   .connect(
@@ -20,11 +13,11 @@ mongoose
     { useNewUrlParser: true }
   )
   .catch(err => console.log(err));
+
 app.use(express.json());
 app.use(morgan('dev'));
 app.use('/api/urls', url);
 app.use('/api/users', user);
-
 app.get('/:shrink', async (req, res) => {
   const original = await getOriginal(req.params.shrink);
   res.redirect(original);

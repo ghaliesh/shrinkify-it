@@ -1,3 +1,7 @@
+## Preview this app
+
+This app is deployed to heroku, you can preview it on this [Link](https://shrinkify-ghazwan-aliesh.herokuapp.com/)
+
 ## Installation :
 
 ```

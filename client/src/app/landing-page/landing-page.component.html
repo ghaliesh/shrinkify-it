@@ -1,0 +1,43 @@
+<div class="wrapper">
+
+  <div class="main">
+    <form (ngSubmit)="shrinkLink()" [formGroup]="formGroup">
+      <input name="link"  [ngClass]="{'error': (!link.valid && link.touched)}"  [placeholder]="(link.touched && link.getError('required'))? 'This field is required': ''"   value="hey"
+        formControlName="link" autofocus="false">
+      <div class="submit">
+        <button type="submit" [ngClass]="{'disabled': !formGroup.valid && formGroup.touched}" [disabled]="!formGroup.valid" class="btn btn-submit">Shrink new link</button>
+        <button [routerLink]="['/manager']" class="btn btn-manage">Manage existing links</button>
+      </div>
+    </form>
+
+  </div>
+  <footer>
+    <div class="coding-section">
+      <div>
+        <h3 class="title">
+          Coding section
+        </h3>
+      </div>
+      <a target="_blank" href="https://nodejs.org">NodeJS </a>
+      <a target="_blank" href="https://angular.io">Angular6 </a>
+      <a target="_blank" href="https://rxjs-dev.firebaseapp.com/">RXJS (reactive programming) </a>
+      <a target="_blank" href="https://www.mongodb.com">MongoDB (Mongoose ODM) </a>
+      <a target="_blank" href="https://www.heroku.com">Heroku </a>
+      <a target="_blank" href="http://es6-features.org/">ES6</a>
+      <a target="_blank" href="http://es6-features.org/">Yarn</a>
+    </div>
+    <div class="design-section">
+      <div>
+        <h3 class="title">
+          Design section
+        </h3>
+      </div>
+
+      <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML </a>
+      <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS/CSS3 </a>
+      <a target="_blank" href="https://www.adobe.com/products/illustrator.html">Adobe illustrator (logo design) </a>
+      <a target="_blank" href="https://www.adobe.com/products/xd.html">Adobe XD (UX/UI mockups) </a>
+    </div>
+
+  </footer>
+</div>

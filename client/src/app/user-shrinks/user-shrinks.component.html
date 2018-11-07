@@ -1,0 +1,56 @@
+<section>
+  <h1 class="table-header">Shrink manager</h1>
+  <div class="tbl-header">
+    <table cellpadding="0"
+           cellspacing="0"
+           border="0">
+      <thead>
+        <tr>
+          <th>Original</th>
+          <th>Shortened</th>
+          <th>Created at</th>
+          <th>Visited</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0"
+           cellspacing="0"
+           border="0">
+      <tbody>
+        <tr *ngFor="let item of userLink; let i = index"
+            [attr.data-index]="i">
+
+          <td>
+            <a href="{{item.original}}">
+              <p *ngIf="item.original.length > 12">{{item.original | slice:8:
+                18}}...</p>
+              <p *ngIf="item.original.length < 12">{{item.original | slice:8:
+                18}}...</p>
+            </a>
+          </td>
+          <td>
+            <a href="{{item.original}}"
+               target="_blank">sh/{{item.shrinked}}</a>
+          </td>
+
+          <td>{{item.createdAt | date}}</td>
+          <td>{{item.visited}}</td>
+          <td>
+            <i (click)="edit(item._id, $event)"
+               class="fas fa-edit"></i>
+          </td>
+          <td>
+            <i (click)="delete(item._id, i)"
+               class="fas fa-trash"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- <button *ngIf="editMode" (click)="edit(item)" class="save-changes">Save Changes</button> -->
+
+</section>

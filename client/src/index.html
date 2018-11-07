@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Client</title>
+  <base href="/">
+  <style>
+    /* This is a forced bad practce to apply style to elements that are created dynamically  */
+
+    .edit-input {
+      height: 20px;
+      border-radius: 50px;
+      border: 1.5px solid #fdbd0e;
+      color: black;
+      width: 200%;
+      opacity: 1;
+      padding: 15px 25px;
+      background: rgb(229, 237, 255);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+    }
+
+    .edit-input:focus {
+      display: inline-block;
+      background: white;
+      outline: none;
+      -moz-box-shadow: inset 0 0 10px #0072b4;
+      -webkit-box-shadow: inset 0 0 10px #0072b4;
+      box-shadow: inset 0 0 10px #0072b4;
+      border: 0px solid transparent;
+      opacity: 1;
+    }
+  </style>
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="upgrade-insecure-requests">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+  <link rel="icon"
+        type="image/x-icon"
+        href="favicon.ico">
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
+</html>

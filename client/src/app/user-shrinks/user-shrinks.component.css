@@ -1,0 +1,156 @@
+header {
+  background: var(--light);
+  grid-area: header;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: 0.1fr 0.1fr;
+  grid-template-areas: '. . . . . . . profile logout';
+}
+
+.logo {
+  align-content: center;
+  align-self: center;
+}
+
+.profile {
+  grid-area: profile;
+}
+
+.logout, .profile {
+  display: block;
+  justify-self: center;
+  text-decoration: none;
+  color: var(--primary);
+  border: 1px solid transparent;
+  opacity: 0.4;
+  transition: 0.6s ease-in-out;
+  padding: 10px;
+}
+
+.logout {
+  background: var(--primary);
+  color: #fff;
+  grid-area: logout;
+}
+
+.logout:hover {
+  cursor: pointer;
+  opacity: 1;
+  border: 1px solid var(--primary);
+}
+
+.profile:hover {
+  color: var(--primary);
+  cursor: pointer;
+  opacity: 1;
+  border: 1px solid var(--primary);
+}
+
+h1 {
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tbl-header {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.tbl-content {
+  height: 300px;
+  overflow-x: auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.table-header {
+  padding: 5px;
+  border: 1px solid #fff;
+  display: inline-block;
+}
+
+th {
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: bolder;
+  font-size: 15px;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: var(--light);
+}
+
+td {
+  padding: 15px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+section {
+  margin: 50px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+i {
+  font-size: 20px;
+  cursor: pointer;
+  transition: .4s all;
+}
+
+i:hover {
+  transform: scale(1.3);
+}
+
+.fa-edit {
+  color: var(--info);
+}
+
+.fa-trash {
+  color: var(--danger);
+}
+
+.save-changes {
+  padding: 10px;
+  border: 1px solid var(--light);
+  transition: .4s ease-in-out;
+  background: transparent;
+  margin-top: 25px;
+  color: white;
+  ;
+  opacity: 0.7;
+  font-size: 25px;
+  text-transform: uppercase;
+  cursor: pointer;
+}

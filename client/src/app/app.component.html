@@ -1,0 +1,102 @@
+<header>
+  <div class="logo">
+    <a [routerLink]="['/']">
+      <img src="../assets/imgs/logo.png">
+    </a>
+  </div>
+  <nav>
+    <a *ngIf="isLoggedIn | async" [routerLink]="['/']" class="button1">Home</a>
+    <a *ngIf="isLoggedIn | async" (click)="logOut()" class="button2">Log out</a>
+    <a *ngIf="!(isLoggedIn | async)" id="login" (click)="openModel($event)"
+      class="button1">Log in</a>
+    <a *ngIf="!(isLoggedIn | async)" id="register" (click)="openModel($event)"
+      class="button2">Sign
+      up</a>
+  </nav>
+</header>
+
+<div #registerModel id="modal-wrapper" class="modal">
+  <form class="modal-content animate">
+
+    <div class="imgcontainer">
+
+      <img src="../assets/imgs/login.svg" class="avatar">
+    </div>
+
+    <div>
+      <form [formGroup]="formGroup">
+        <input type="text" [ngClass]="{'error': (!name.valid && name.touched)}"
+          formControlName="name" class="username" name="something" placeholder="Enter name">
+        <div class="error-message" *ngIf="!name.valid && name.touched">
+          <div *ngIf="name.errors['required']">The name field is required.</div>
+          <div *ngIf="name.errors['minlength']">Name should be at least 2
+            letters.</div>
+        </div>
+        <input type="text" formControlName="email" [ngClass]="{'error': (!email.valid && email.touched)}"
+          name="email" placeholder="Enter Email">
+        <div class="error-message" *ngIf="!email.valid && email.touched">
+          <div *ngIf="email.errors['required']">The email field is required.</div>
+          <div *ngIf="email.errors['email']">The email field must be valid
+            email.</div>
+          <div *ngIf="email.errors['minlength']">email should be at least 5
+            letters.</div>
+        </div>
+        <input type="password" [ngClass]="{'error': (!password.valid && password.touched)}"
+          formControlName="password" name="password" placeholder="Enter Password">
+        <div class="error-message" *ngIf="!password.valid && password.touched">
+          <div *ngIf="password.errors['required']">The password field is
+            required.</div>
+          <div *ngIf="password.errors['minlength']">password should be at least
+            5 letters.</div>
+        </div>
+        <button class="login" (click)="register()" type="submit" [ngClass]="{'disabled': !formGroup.valid && formGroup.touched}"
+          [disabled]="!formGroup.valid">Sign up</button>
+        <button class="cancel" id="close-register" (click)="closeModel($event)">No
+          thanks</button>
+      </form>
+    </div>
+  </form>
+</div>
+
+
+<div #loginModel id="modal-wrapper" class="modal">
+  <form class="modal-content animate" (ngSubmit)="login()">
+
+    <div class="imgcontainer">
+
+      <img src="../assets/imgs/login.svg" class="avatar">
+    </div>
+
+    <div>
+      <form [formGroup]="formGroup">
+        <input type="text" formControlName="email" [ngClass]="{'error': (!email.valid && email.touched)}"
+          name="email" placeholder="Enter Email">
+        <div class="error-message" *ngIf="!email.valid && email.touched">
+          <div *ngIf="email.errors['required']">The email field is required.</div>
+          <div *ngIf="email.errors['minlength']">email should be at least 5
+            letters.</div>
+          <div *ngIf="email.errors['email']">The email field must be valid
+            email.</div>
+        </div>
+        <input type="password" [ngClass]="{'error': (!password.valid && password.touched)}"
+          formControlName="password" name="password" placeholder="Enter Password">
+        <div class="error-message" *ngIf="!password.valid && password.touched">
+          <div *ngIf="password.errors['required']">The password field is
+            required.</div>
+          <div *ngIf="password.errors['minlength']">password should be at least
+            5 letters.</div>
+        </div>
+        <button class="login" (click)="login()" type="submit" [ngClass]="{'disabled': (email.invalid && email.touched ||
+        password.invalid && password.touched)}"
+          [disabled]="!formGroup.valid">Login</button>
+        <button type="button" class="cancel" id="close-login" (click)="closeModel($event)">No
+          thanks</button>
+      </form>
+    </div>
+  </form>
+</div>
+
+
+
+
+<router-outlet></router-outlet>

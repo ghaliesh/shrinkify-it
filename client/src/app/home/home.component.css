@@ -1,0 +1,44 @@
+/* .nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+} */
+
+.random-text {
+  width: 60%;
+}
+
+.header {
+  position: absolute;
+  top: 35%;
+  width: 90%;
+  left: 2%;
+}
+
+.header>h2 {
+  color: var(--primary);
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.header p {
+  color: var(--light);
+  line-height: 1.4em;
+}
+
+.get-started {
+  border: 2px solid var(--light);
+  padding: 10px;
+  color: var(--light);
+  background: transparent;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .9s all;
+  width: 200px;
+  height: 60px;
+}
+
+.get-started:hover {
+  color: var(--light);
+  background: var(--primary);
+  border: 2px solid var(--light);
+}
